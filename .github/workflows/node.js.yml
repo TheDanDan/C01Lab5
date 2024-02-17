@@ -28,7 +28,10 @@
                   node-version: ${{ matrix.node-version }}
               - run: npm i
               - run: npm install
-              - run: mkdir -p ./data/db
-              - run: mongod --dbpath ./data/db
+              - name: MongoDB for GitHub Actions
+  # You may pin to the exact commit or the version.
+  # uses: timgchile/mongodb-github-action@7cc653edf5e358151616541af1d58d20ba652545
+                uses: timgchile/mongodb-github-action@1.7.4
+          
               - run: npm start
               - run: npm tests
