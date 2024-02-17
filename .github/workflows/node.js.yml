@@ -36,6 +36,6 @@
                   mongo-shell: true # default is true
     # Install mongo-tools ? "true" is default value. Else skip.
                   mongo-tools: true # default is true
-              - run: sudo service mongod --dbpath=.\data\db
+              - run: sudo service mongod start
               - run: npm start
               - run: npm test
