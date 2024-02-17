@@ -27,15 +27,8 @@
                 with:
                   node-version: ${{ matrix.node-version }}
               - run: npm i
-              - name: action-mongo-tools
-  # You may pin to the exact commit or the version.
-  # uses: boly38/action-mongo-tools@1ffb277dd00e0412eab2e42139c7436b9f903af9
-                uses: boly38/action-mongo-tools@v1.0.1
-                with:
-    # Install mongo-shell ? "true" is default value. Else skip.
-                  mongo-shell: true # default is true
-    # Install mongo-tools ? "true" is default value. Else skip.
-                  mongo-tools: true # default is true
-              - run: sudo service mongod start
+              - run: npm install
+              - run: mkdir -p ./data/db
+              - run: mongod --dbpath ./data/db
               - run: npm start
-              - run: npm test
+              - run: npm tests
